@@ -25,5 +25,18 @@ public class TodoService {
     public void addTodo(Todo todo) {	
 		todos.add(todo);
 	}
-    
+
+    public void updateTodo(String id, Todo todo) {	
+        for (int i=0; i < todos.size(); i++) {
+            Todo t = todos.get(i);
+            if (t.getId().equals(id)) {
+                todos.set(i,todo);
+            }
+        }
+        return;
+	}
+
+    public void deleteTodo(String id) {	
+        todos.removeIf(todo -> todo.getId().equals(id));
+	}
 }

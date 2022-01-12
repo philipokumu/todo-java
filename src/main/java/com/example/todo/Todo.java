@@ -1,11 +1,14 @@
 package com.example.todo;
 
+import java.util.Date;
+
 public class Todo {
 
     // @Id
 	private String id;
 	private String description;
 	private boolean isCompleted;
+	private Date created_at;
 
     public Todo(){
         
@@ -16,6 +19,7 @@ public class Todo {
 		this.id = id;
 		this.description = description;
 		this.isCompleted = isCompleted;
+		this.created_at = new Date(System.currentTimeMillis());
 	}
 
     public String getId() {
@@ -40,6 +44,14 @@ public class Todo {
 
     public void setCompleted(boolean isCompleted) {
         this.isCompleted = isCompleted;
+    }
+
+    public Date getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(Date created_at) {
+        this.created_at = created_at;
     }
 
     
