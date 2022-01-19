@@ -2,6 +2,9 @@ package com.example.todo;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Todo {
 
     // @Id
