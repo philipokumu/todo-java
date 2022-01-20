@@ -3,12 +3,15 @@ package com.example.todo;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "todos")
 public class Todo {
 
-    // @Id
-	private String id;
+    @Id
+	private int id;
 	private String description;
 	private boolean isCompleted;
 	private Date created_at;
@@ -17,7 +20,7 @@ public class Todo {
         
     }
 
-    public Todo(String id, String description, boolean isCompleted) {
+    public Todo(int id, String description, boolean isCompleted) {
 		super();
 		this.id = id;
 		this.description = description;
@@ -25,11 +28,11 @@ public class Todo {
 		this.created_at = new Date(System.currentTimeMillis());
 	}
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
