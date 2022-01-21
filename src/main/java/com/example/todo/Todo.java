@@ -2,37 +2,44 @@ package com.example.todo;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Table(name = "todos")
 public class Todo {
 
     @Id
-	private int id;
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+	private String id;
 	private String description;
 	private boolean isCompleted;
+    @Column(name = "`created_at`")
+	@CreationTimestamp
 	private Date created_at;
 
     public Todo(){
         
     }
 
-    public Todo(int id, String description, boolean isCompleted) {
+    public Todo(String id, String description, boolean isCompleted) {
 		super();
 		this.id = id;
 		this.description = description;
 		this.isCompleted = isCompleted;
-		this.created_at = new Date(System.currentTimeMillis());
+		// this.created_at = new Date(System.currentTimeMillis());
 	}
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
